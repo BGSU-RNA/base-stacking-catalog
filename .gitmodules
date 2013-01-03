@@ -1,0 +1,3 @@
+[submodule "jmolTools"]
+	path = jmolTools
+	url = https://github.com/AntonPetrov/jmolTools.git
