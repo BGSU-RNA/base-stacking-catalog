@@ -7,6 +7,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <script src="jmolTools/jmol/jmol.js"></script>
+
     <!-- Le styles -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
@@ -32,11 +34,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">RNA Stacking</a>
+          <a class="brand" href="#">RNA Stacking Catalog</a>
           <div class="nav-collapse collapse">
           <ul class="nav">
-            <li><a href="#">RNA Basepair Catalog</a></li>
-            <li><a href="#">RNA Base-phosphate Catalog</a></li>
+            <li><a href="http://rna.bgsu.edu/FR3D/basepairs">RNA Basepair Catalog</a></li>
+            <li><a href="http://rna.bgsu.edu/FR3D/BasePhosphates">RNA Base-phosphate Catalog</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Resources
@@ -44,6 +46,10 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a href="http://rna.bgsu.edu/">RNA BGSU Home</a></li>
+                <li><a href="http://rna.bgsu.edu/rna3dhub/">RNA 3D Hub</a></li>
+                <li class="divider"></li>
+                <li><a href="http://ndbserver.rutgers.edu/" target="_blank">NDB</a></li>
+                <li><a href="http://www.pdb.org/" target="_blank">PDB</a></li>
               </ul>
             </li>
           </ul>
@@ -57,6 +63,56 @@
 
       <h1>RNA Stacking Catalog</h1>
 
+      <div class="row">
+
+    <div class="span5">
+        <script type="text/javascript">
+            jmolInitialize("./jmolTools/jmol");
+            jmolSetAppletColor("#f3f3f3");
+            jmolApplet(400, "javascript appletLoaded()");
+        </script>
+        <br>
+        <input type="button" class="btn" id="neighborhood" value="Show neighborhood">
+        <input type="button" class="btn" id="stereo" value="Stereo">
+        <label class="checkbox"><input type="checkbox" id="showNtNums">Numbers</label>
+    </div>
+
+	<div class="span6">
+	    <h4>s53</h4>
+        <p>
+          <small>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a lectus fermentum elit congue sollicitudin sed quis nibh. Phasellus tortor massa, iaculis ac luctus a, fermentum vel lorem. Cras auctor sem eu massa tempus volutpat. Fusce felis augue, molestie at porttitor mattis, placerat quis lectus. Integer sed aliquet turpis. Ut fringilla nulla nec ante vehicula ut dictum quam blandit. Ut ornare libero eu erat pharetra vestibulum. Quisque ac libero vel tortor tristique facilisis.
+          </small>
+        </p>
+        <label class="radio">
+          <input type='radio' name="stacks" id='s53' class='jmolInline' data-coord='1S72|1|0|A|1020,1S72|1|0|G|948'>
+          s53
+        </label>
+
+	    <h4>s55</h4>
+        <p>
+          <small>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a lectus fermentum elit congue sollicitudin sed quis nibh. Phasellus tortor massa, iaculis ac luctus a, fermentum vel lorem. Cras auctor sem eu massa tempus volutpat. Fusce felis augue, molestie at porttitor mattis, placerat quis lectus. Integer sed aliquet turpis. Ut fringilla nulla nec ante vehicula ut dictum quam blandit. Ut ornare libero eu erat pharetra vestibulum. Quisque ac libero vel tortor tristique facilisis.
+          </small>
+        </p>
+        <label class="radio">
+          <input type='radio' name="stacks" id='s55' class='jmolInline' data-coord='1S72|1|0|A|59,1S72|1|0|G|56'>
+          s55
+        </label>
+
+	    <h4>s33</h4>
+        <p>
+          <small>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a lectus fermentum elit congue sollicitudin sed quis nibh. Phasellus tortor massa, iaculis ac luctus a, fermentum vel lorem. Cras auctor sem eu massa tempus volutpat. Fusce felis augue, molestie at porttitor mattis, placerat quis lectus. Integer sed aliquet turpis. Ut fringilla nulla nec ante vehicula ut dictum quam blandit. Ut ornare libero eu erat pharetra vestibulum. Quisque ac libero vel tortor tristique facilisis.
+          </small>
+        </p>
+        <label class="radio">
+          <input type='radio' name="stacks" id='s33' class='jmolInline' data-coord='1S72|1|0|A|1442,1S72|1|0|G|1441'>
+          s33
+        </label>
+	</div>
+	</div>
+
 
     </div> <!-- /container -->
 
@@ -65,6 +121,24 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="jmolTools/jquery.jmolTools.js"></script>
+
+    <script>
+
+        // initialize the plugin
+        $('.jmolInline').jmolTools({
+            showStereoId: 'stereo',
+            showNeighborhoodId: 'neighborhood',
+            showNumbersId: 'showNtNums'
+        });
+
+        // make sure that jmol is ready
+      	function appletLoaded (){
+      	    $('.jmolInline').first().jmolToggle();
+      	}
+
+    </script>
+
 
   </body>
 </html>
